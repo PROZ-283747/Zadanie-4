@@ -25,7 +25,7 @@ public class CurrencyAverageInfo {
 				+ "AvgBid: " + resultAverage.getAverageBid().toString() + "</h3>" + "<h3>" + "AvgAsk: "
 				+ resultAverage.getAverageAsk().toString() + "</h3></body></html>";
 
-		return Response.status(Response.Status.OK).entity(response).build();
+		return Response.status(Response.Status.OK).entity(response).type(MediaType.TEXT_HTML).build();
 	}
 
 	@Produces(MediaType.TEXT_XML)
@@ -46,7 +46,7 @@ public class CurrencyAverageInfo {
 		String response = " Table: " + table + "   Code: " + code + "   TopCount: " + topCount + " AvgMid: "
 				+ resultAverage.getAverageMid().toString() + " AvgBid: " + resultAverage.getAverageBid().toString()
 				+ " AvgAsk: " + resultAverage.getAverageAsk().toString();
-		return Response.status(Response.Status.OK).entity(response).build();
+		return Response.status(Response.Status.OK).entity(response).type(MediaType.TEXT_PLAIN).build();
 	}
 
 	@Produces(MediaType.APPLICATION_JSON)
@@ -59,7 +59,7 @@ public class CurrencyAverageInfo {
 				.add("AvgAsk", resultAverage.getAverageAsk().toString());
 		JsonObject jsonObj = objBuilder.build();
 
-		return Response.status(Response.Status.OK).entity(jsonObj.toString()).build();
+		return Response.status(Response.Status.OK).entity(jsonObj.toString()).type(MediaType.APPLICATION_JSON).build();
 	}
 
 	@GET
