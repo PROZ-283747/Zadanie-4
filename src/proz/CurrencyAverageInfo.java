@@ -49,7 +49,7 @@ public class CurrencyAverageInfo {
 		return Response.status(Response.Status.OK).entity(response).build();
 	}
 
-	@Produces(MediaType.TEXT_HTML)
+	@Produces(MediaType.APPLICATION_JSON)
 	private Response getParamJSON(ResultAverage resultAverage, String table, String code, Integer topCount) {
 
 		JsonObjectBuilder objBuilder = Json.createObjectBuilder();
